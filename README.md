@@ -23,8 +23,8 @@ An intelligent personal & workspace productivity operating system with AI Copilo
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/aiplanner.git
-cd aiplanner
+git clone https://github.com/NayaniMahdi/Aster-AI-Planner
+cd Aster-AI-Planner
 ```
 
 ### 2. Install dependencies
