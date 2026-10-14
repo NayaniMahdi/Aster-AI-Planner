@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Studio Clean Daylight Workspace (Light Mode) ── */
+    --background: 230 20% 97%;      /* #F5F6FA - clean studio daylight canvas */
+    --foreground: 222 47% 11%;      /* #0F172A - deep editorial slate */
+    
+    --card: 0 0% 100%;              /* #FFFFFF - crisp elevated card */
+    --card-foreground: 222 47% 11%;
+    --card-subtle: 220 14% 96%;     /* #F1F5F9 */
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 221 83% 53%;         /* #2563EB - studio cobalt */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 14% 94%;       /* #E2E8F0 / #F1F5F9 */
+    --secondary-foreground: 222 47% 15%;
+    
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%; /* #64748B - clean slate */
+    
+    --accent: 220 14% 94%;
+    --accent-foreground: 221 83% 53%;
+    
+    --destructive: 0 72% 51%;       /* #DC2626 */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 88%;          /* #E2E8F0 - precision hairline matching dashboard */
+    --border-subtle: 220 13% 92%;
+    --input: 220 13% 88%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;               /* 8px clean modern radius */
+    
+    --sidebar-background: 222 47% 7%; /* #0D1117 - matte obsidian */
+    --sidebar-foreground: 220 14% 93%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 47% 12%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Semantic states */
+    --sig-cyan: 199 89% 48%;
+    --sig-mint: 142 76% 36%;
+    --sig-amber: 38 92% 44%;
+    --sig-red: 0 72% 51%;
+    --sig-magenta: 262 83% 58%;
+    --sig-blue: 221 83% 53%;
+
+    --panel: 0 0% 100%;
+    --panel2: 220 14% 96%;
+    --line: 220 13% 88%;
+
+    --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+    --shadow-lift: 0 3px 12px -2px rgb(0 0 0 / 0.06), 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-drawer: 0 16px 36px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    /* ── Aster Luxury Obsidian Black Theme ── */
+    --background: 240 10% 2.8%;     /* #060608 - deepest luxury obsidian void */
+    --foreground: 0 0% 98%;         /* #FAFAFA - crisp brilliant diamond white */
+    
+    --card: 232 14% 6.5%;           /* #0D0E13 - refined matte obsidian card */
+    --card-foreground: 0 0% 98%;
+    --card-subtle: 232 12% 9.5%;    /* #14161E */
+    
+    --popover: 232 14% 7%;          /* #0F1016 */
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 199 89% 56%;         /* #38BDF8 - electric cyan-sky */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 232 12% 11%;       /* #171A24 - elevated surface */
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 232 12% 10%;           /* #151821 */
+    --muted-foreground: 220 10% 60%;/* #939AA7 - silver slate with high readability */
+    
+    --accent: 232 12% 12%;
+    --accent-foreground: 199 89% 56%;
+    
+    --destructive: 350 89% 60%;     /* #F43F5E - rich crimson */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 232 12% 14%;          /* #1E222D - precision micro-border */
+    --border-subtle: 232 12% 9.5%;  /* #14161E */
+    --input: 232 12% 14%;
+    --ring: 199 89% 56%;
+    
+    --sidebar-background: 240 10% 2.8%; /* #060608 */
+    --sidebar-foreground: 220 14% 93%;
+    --sidebar-primary: 199 89% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 232 12% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 232 12% 11%;
+    --sidebar-ring: 199 89% 56%;
+
+    --sig-cyan: 199 89% 56%;
+    --sig-mint: 156 72% 46%;
+    --sig-amber: 38 92% 52%;
+    --sig-red: 350 89% 60%;
+    --sig-magenta: 262 83% 66%;
+    --sig-blue: 217 91% 60%;
+
+    --panel: 232 14% 6.5%;
+    --panel2: 232 12% 11%;
+    --line: 232 12% 14%;
+
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 6px 24px -2px rgb(0 0 0 / 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    --shadow-drawer: 0 20px 48px -4px rgb(0 0 0 / 0.95);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    letter-spacing: -0.012em;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Sora", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  code, kbd, samp, pre {
+    font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: inherit;
+  }
+
+  /* Sleek custom workstation scrollbars */
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+}
+
+@layer components {
+  /* Sunsama & Ranya multi-stream layout primitives */
+  .workstation-stream {
+    @apply flex flex-col h-full bg-card/60 backdrop-blur-sm border-r border-border overflow-hidden;
+  }
+
+  .workstation-stream-header {
+    @apply flex h-10 shrink-0 items-center justify-between border-b border-border px-3 bg-secondary/25 select-none;
+  }
+
+  /* Tactile task item tile */
+  .task-item-tile {
+    @apply relative flex items-start gap-2.5 rounded border border-border bg-card p-2.5 transition-all duration-150 hover:border-muted-foreground/40 hover:shadow-xs;
+  }
+
+  /* Timebox calendar grid slot */
+  .calendar-hour-row {
+    @apply relative flex items-start border-b border-border/50 text-[11px] font-mono text-muted-foreground transition-colors hover:bg-secondary/15;
+    height: 52px;
+  }
+
+  .now-timeline-marker {
+    @apply absolute left-0 right-0 z-20 flex items-center pointer-events-none;
+  }
+
+  .now-timeline-marker::before {
+    content: '';
+    @apply h-2 w-2 rounded-full bg-rose-500 shrink-0 -ml-1;
+    box-shadow: 0 0 6px rgba(244, 63, 94, 0.6);
+  }
+
+  .now-timeline-marker::after {
+    content: '';
+    @apply h-[1.5px] flex-1 bg-rose-500/80;
+  }
+
+  .kbd-chip {
+    @apply inline-flex items-center justify-center rounded px-1.5 py-0.5 font-mono text-[9px] font-medium text-muted-foreground bg-secondary border border-border/80;
+  }
+
+  /* ── Studio Clean Obsidian Sidebar Primitives ── */
+  .obsidian-sidebar {
+    background-color: #0d1117;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .obsidian-nav-item {
+    color: #94a3b8;
+    transition: all 0.15s ease;
+  }
+
+  .obsidian-nav-item:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .obsidian-nav-item-active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .studio-surface {
+    background-color: hsl(240 10% 2.8%);
+  }
+
+  .studio-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  .dark .studio-card {
+    background-color: hsl(232 14% 6.5%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .studio-card-dark {
+    background-color: #0d0f15;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.75);
+  }
+
+  /* Universal Dark Mode surface helpers for ambient luxury */
+  .dark .bg-\[\#F5F6FA\],
+  .dark .bg-\[\#F4F6FB\],
+  .dark .bg-\[\#F8F9FC\] {
+    background-color: hsl(240 10% 2.8%) !important;
+  }
+
+  /* Automatically elevate plain white utility surfaces into luxury matte obsidian */
+  .dark .bg-white:not([class*="dark:bg-"]):not([class*="bg-sky-"]):not([class*="bg-emerald-"]):not([class*="bg-rose-"]):not([class*="bg-purple-"]) {
+    background-color: hsl(232 14% 6.5%);
+  }
+
+  /* Soften harsh light slate text into crisp luxury silver/white typography */
+  .dark .text-slate-900:not([class*="dark:text-"]) {
+    color: #fafafa;
+  }
+  .dark .text-slate-800:not([class*="dark:text-"]) {
+    color: #f1f5f9;
+  }
+  .dark .text-slate-700:not([class*="dark:text-"]) {
+    color: #cbd5e1;
+  }
+  .dark .text-slate-600:not([class*="dark:text-"]) {
+    color: #94a3b8;
+  }
+  .dark .text-slate-500:not([class*="dark:text-"]) {
+    color: #717d91;
+  }
+
+  /* Precision dark micro-borders */
+  .dark .border-slate-200:not([class*="dark:border-"]),
+  .dark .border-slate-100:not([class*="dark:border-"]),
+  .dark .border-black\/\[0\.08\]:not([class*="dark:border-"]),
+  .dark .border-black\/\[0\.06\]:not([class*="dark:border-"]),
+  .dark .border-black\/\[0\.05\]:not([class*="dark:border-"]),
+  .dark .border-black\/\[0\.07\]:not([class*="dark:border-"]),
+  .dark .border-black\/10:not([class*="dark:border-"]) {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .dark .divide-slate-100:not([class*="dark:divide-"]),
+  .dark .divide-slate-200:not([class*="dark:divide-"]) {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Luxury inverted slate-900 primary button contrast in dark mode */
+  .dark button.bg-slate-900:not([class*="dark:bg-"]) {
+    background-color: #fafafa;
+    color: #090c12;
+  }
+  .dark button.bg-slate-900:not([class*="dark:bg-"]):hover {
+    background-color: #e2e8f0;
+  }
+}
+
+/* Animations */
+@keyframes open-tab {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes page-reveal {
+  0% {
+    opacity: 0.9;
+    transform: translateX(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wave-bar {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.45; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes shimmer-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(0.95); opacity: 0.4; }
+  50% { transform: scale(1.06); opacity: 0.8; }
+}
+
+.anim-rise {
+  animation: rise-in 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-wave-1 {
+  animation: wave-bar 0.9s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+.anim-wave-2 {
+  animation: wave-bar 0.9s ease-in-out infinite 0.15s;
+  transform-origin: center bottom;
+}
+.anim-wave-3 {
+  animation: wave-bar 0.9s ease-in-out infinite 0.3s;
+  transform-origin: center bottom;
+}
+.anim-wave-4 {
+  animation: wave-bar 0.9s ease-in-out infinite 0.45s;
+  transform-origin: center bottom;
+}
+
+.anim-shimmer {
+  background: linear-gradient(90deg, #0f172a 0%, #64748b 50%, #0f172a 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 2.2s linear infinite;
+}
+
+/* Rich markdown */
+.rich-text > :first-child {
+  margin-top: 0 !important;
+}
+.rich-text > :last-child {
+  margin-bottom: 0 !important;
+}
+.rich-text h1, .rich-text h2, .rich-text h3 {
+  @apply font-semibold mt-3 mb-1 text-slate-900 tracking-tight text-sm;
+}
+.rich-text p { @apply my-2 leading-relaxed text-[13.5px] text-slate-800; }
+.rich-text ul, .rich-text ol { @apply my-2 pl-4 space-y-1.5 text-[13.5px] text-slate-800; }
+.rich-text ul { @apply list-disc; }
+.rich-text ol { @apply list-decimal; }
+.rich-text li { @apply leading-relaxed; }
+.rich-text strong { @apply text-slate-900 font-semibold; }
+.rich-text code {
+  @apply font-mono text-[12px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200/80;
+}
+.rich-text pre {
+  @apply my-3 p-3.5 rounded-xl bg-slate-900 text-slate-100 text-[12px] font-mono overflow-x-auto;
+}
+
+.font-sora {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
